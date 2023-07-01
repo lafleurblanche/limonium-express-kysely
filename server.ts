@@ -8,6 +8,15 @@ import express,{
   Response
 } from 'express'
 
+/* fp-ts */
+import { isLeft } from 'fp-ts/lib/Either';
+
+/* util */
+import {
+  getAreaGWTicketRequestOWA,
+  getAreaGWTicketRequestOWAByRequestNumber
+} from '@/util';
+
 const app: Application = express();
 const PORT = 34501;
 
@@ -20,6 +29,19 @@ app.get('/', async (_req: Request, res: Response) => {
     message: 'Hello World!',
   })
 })
+
+app.get('/argw-req-owa', async (_req: Request, res: Response) => {
+  const argwTicketReqOWAResult = await getAreaGWTicketRequestOWA()
+  return res.status(200).send(argwTicketReqOWAResult)
+});
+
+app.get('/argw-req-owa/:requestNum', async (_req: Request, res: Response) => {
+  const argwTicketReqOWAByReqNoResult = await getAreaGWTicketRequestOWAByRequestNumber(_req.params.requestNum)
+  if(isLeft(argwTicketReqOWAByReqNoResult)) {
+    return res.status(400).send(argwTicketReqOWAByReqNoResult.left)
+  }
+  return res.status(200).send(argwTicketReqOWAByReqNoResult.right)
+});
 
 app.listen(PORT, () => {
   console.log(`Started server on ${PORT}`);
