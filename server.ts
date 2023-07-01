@@ -14,7 +14,9 @@ import { isLeft } from 'fp-ts/lib/Either';
 /* util */
 import {
   getAreaGWTicketRequestOWA,
-  getAreaGWTicketRequestOWAByRequestNumber
+  getAreaGWTicketRequestOWAByRequestNumber,
+  getAreaGWTicketRequestOWH,
+  getAreaGWTicketRequestRTA
 } from '@/util';
 
 const app: Application = express();
@@ -41,6 +43,16 @@ app.get('/argw-req-owa/:requestNum', async (_req: Request, res: Response) => {
     return res.status(400).send(argwTicketReqOWAByReqNoResult.left)
   }
   return res.status(200).send(argwTicketReqOWAByReqNoResult.right)
+});
+
+app.get('/argw-req-owh', async (_req: Request, res: Response) => {
+  const argwTicketReqOWHResult = await getAreaGWTicketRequestOWH()
+  return res.status(200).send(argwTicketReqOWHResult)
+});
+
+app.get('/argw-req-rta', async (_req: Request, res: Response) => {
+  const argwTicketReqRTAResult = await getAreaGWTicketRequestRTA()
+  return res.status(200).send(argwTicketReqRTAResult)
 });
 
 app.listen(PORT, () => {
