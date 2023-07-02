@@ -18,7 +18,8 @@ import {
   getAreaGWTicketRequestOWH,
   getAreaGWTicketRequestOWHByRequestNumber,
   getAreaGWTicketRequestRTA,
-  getAreaGWTicketRequestRTAByRequestNumber
+  getAreaGWTicketRequestRTAByRequestNumber,
+  getEnjuRWTicketRequestOWA
 } from '@/util';
 
 const app: Application = express();
@@ -71,6 +72,11 @@ app.get('/argw-req-rta/:requestNum', async (_req: Request, res: Response) => {
     return res.status(400).send(argwTicketReqRTAByReqNoResult.left)
   }
   return res.status(200).send(argwTicketReqRTAByReqNoResult.right)
+});
+
+app.get('/enju-req-owa', async (_req: Request, res: Response) => {
+  const enjuTicketReqOWAResult = await getEnjuRWTicketRequestOWA()
+  return res.status(200).send(enjuTicketReqOWAResult)
 });
 
 app.listen(PORT, () => {
