@@ -16,7 +16,9 @@ import {
   getAreaGWTicketRequestOWA,
   getAreaGWTicketRequestOWAByRequestNumber,
   getAreaGWTicketRequestOWH,
-  getAreaGWTicketRequestRTA
+  getAreaGWTicketRequestOWHByRequestNumber,
+  getAreaGWTicketRequestRTA,
+  getAreaGWTicketRequestRTAByRequestNumber
 } from '@/util';
 
 const app: Application = express();
@@ -50,9 +52,25 @@ app.get('/argw-req-owh', async (_req: Request, res: Response) => {
   return res.status(200).send(argwTicketReqOWHResult)
 });
 
+app.get('/argw-req-owh/:requestNum', async (_req: Request, res: Response) => {
+  const argwTicketReqOWHByReqNoResult = await getAreaGWTicketRequestOWHByRequestNumber(_req.params.requestNum)
+  if(isLeft(argwTicketReqOWHByReqNoResult)) {
+    return res.status(400).send(argwTicketReqOWHByReqNoResult.left)
+  }
+  return res.status(200).send(argwTicketReqOWHByReqNoResult.right)
+});
+
 app.get('/argw-req-rta', async (_req: Request, res: Response) => {
   const argwTicketReqRTAResult = await getAreaGWTicketRequestRTA()
   return res.status(200).send(argwTicketReqRTAResult)
+});
+
+app.get('/argw-req-rta/:requestNum', async (_req: Request, res: Response) => {
+  const argwTicketReqRTAByReqNoResult = await getAreaGWTicketRequestRTAByRequestNumber(_req.params.requestNum)
+  if(isLeft(argwTicketReqRTAByReqNoResult)) {
+    return res.status(400).send(argwTicketReqRTAByReqNoResult.left)
+  }
+  return res.status(200).send(argwTicketReqRTAByReqNoResult.right)
 });
 
 app.listen(PORT, () => {
