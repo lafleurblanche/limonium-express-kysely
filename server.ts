@@ -19,6 +19,7 @@ import {
   getAreaGWTicketRequestOWHByRequestNumber,
   getAreaGWTicketRequestRTA,
   getAreaGWTicketRequestRTAByRequestNumber,
+  getEnjuRWFXTicketRequestOWA,
   getEnjuRWTicketRequestOWA
 } from '@/util';
 
@@ -77,6 +78,11 @@ app.get('/argw-req-rta/:requestNum', async (_req: Request, res: Response) => {
 app.get('/enju-req-owa', async (_req: Request, res: Response) => {
   const enjuTicketReqOWAResult = await getEnjuRWTicketRequestOWA()
   return res.status(200).send(enjuTicketReqOWAResult)
+});
+
+app.get('/enju-fx-req-owa', async (_req: Request, res: Response) => {
+  const enjuFXTicketReqOWAResult = await getEnjuRWFXTicketRequestOWA()
+  return res.status(200).send(enjuFXTicketReqOWAResult)
 });
 
 app.listen(PORT, () => {
