@@ -20,8 +20,11 @@ import {
   getAreaGWTicketRequestRTA,
   getAreaGWTicketRequestRTAByRequestNumber,
   getEnjuRWFXTicketRequestOWA,
+  getEnjuRWFXTicketRequestOWC,
   getEnjuRWFXTicketRequestOWH,
   getEnjuRWFXTicketRequestRTA,
+  getEnjuRWFXTicketRequestRTC,
+  getEnjuRWFXTicketRequestRTH,
   getEnjuRWTicketRequestOWA
 } from '@/util';
 
@@ -92,9 +95,24 @@ app.get('/enju-fx-req-owh', async (_req: Request, res: Response) => {
   return res.status(200).send(enjuFXTicketReqOWHResult)
 });
 
+app.get('/enju-fx-req-owc', async (_req: Request, res: Response) => {
+  const enjuFXTicketReqOWCResult = await getEnjuRWFXTicketRequestOWC()
+  return res.status(200).send(enjuFXTicketReqOWCResult)
+});
+
 app.get('/enju-fx-req-rta', async (_req: Request, res: Response) => {
   const enjuFXTicketReqRTAResult = await getEnjuRWFXTicketRequestRTA()
   return res.status(200).send(enjuFXTicketReqRTAResult)
+});
+
+app.get('/enju-fx-req-rth', async (_req: Request, res: Response) => {
+  const enjuFXTicketReqRTHResult = await getEnjuRWFXTicketRequestRTH()
+  return res.status(200).send(enjuFXTicketReqRTHResult)
+});
+
+app.get('/enju-fx-req-rtc', async (_req: Request, res: Response) => {
+  const enjuFXTicketReqRTCResult = await getEnjuRWFXTicketRequestRTC()
+  return res.status(200).send(enjuFXTicketReqRTCResult)
 });
 
 app.listen(PORT, () => {
