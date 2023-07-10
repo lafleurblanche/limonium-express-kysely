@@ -13,6 +13,10 @@ import { isLeft } from 'fp-ts/lib/Either';
 
 /* util */
 import {
+  getAreaGWFXTicketRequestOWA,
+  getAreaGWFXTicketRequestOWH,
+  getAreaGWFXTicketRequestRTA,
+  getAreaGWFXTicketRequestRTH,
   getAreaGWTicketRequestOWA,
   getAreaGWTicketRequestOWAByRequestNumber,
   getAreaGWTicketRequestOWH,
@@ -78,6 +82,26 @@ app.get('/argw-req-rta/:requestNum', async (_req: Request, res: Response) => {
     return res.status(400).send(argwTicketReqRTAByReqNoResult.left)
   }
   return res.status(200).send(argwTicketReqRTAByReqNoResult.right)
+});
+
+app.get('/argw-fx-req-owa', async (_req: Request, res: Response) => {
+  const argwFXTicketReqOWAResult = await getAreaGWFXTicketRequestOWA()
+  return res.status(200).send(argwFXTicketReqOWAResult)
+});
+
+app.get('/argw-fx-req-owh', async (_req: Request, res: Response) => {
+  const argwFXTicketReqOWHResult = await getAreaGWFXTicketRequestOWH()
+  return res.status(200).send(argwFXTicketReqOWHResult)
+});
+
+app.get('/argw-fx-req-rta', async (_req: Request, res: Response) => {
+  const argwFXTicketReqRTAResult = await getAreaGWFXTicketRequestRTA()
+  return res.status(200).send(argwFXTicketReqRTAResult)
+});
+
+app.get('/arge-fx-req-rth', async (_req: Request, res: Response) => {
+  const argwFXTicketReqRTHResult = await getAreaGWFXTicketRequestRTH()
+  return res.status(200).send(argwFXTicketReqRTHResult)
 });
 
 app.get('/enju-req-owa', async (_req: Request, res: Response) => {
