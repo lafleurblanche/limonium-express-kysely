@@ -7,12 +7,14 @@ import {
   AreaGWFXHalfRoundTripTicketRequest,
   AreaGWHalfOnewayTicketRequest,
   EnjuRWAdultOnewayTicketRequest,
+  EnjuRWAdultRoundTripTicketRequest,
   EnjuRWFXAdultOnewayTicketRequest,
   EnjuRWFXAdultRoundTripTicketRequest,
   EnjuRWFXChildOnewayTicketRequest,
   EnjuRWFXChildRoundTripTicketRequest,
   EnjuRWFXHalfOnewayTicketRequest,
-  EnjuRWFXHalfRoundTripTicketRequest
+  EnjuRWFXHalfRoundTripTicketRequest,
+  EnjuRWHalfOnewayTicketRequest
 } from "@/db/model";
 
 export interface Database {
@@ -24,6 +26,8 @@ export interface Database {
   areagw_fx_half_oneway_ticket_req: AreaGWFXHalfOnewayTicketRequest
   areagw_fx_half_roundtrip_ticket_req: AreaGWFXHalfRoundTripTicketRequest
   enjurw_adult_oneway_ticket_req: EnjuRWAdultOnewayTicketRequest
+  enjurw_adult_roundtrip_ticket_req: EnjuRWAdultRoundTripTicketRequest
+  enjurw_half_oneway_ticket_req: EnjuRWHalfOnewayTicketRequest
   enjurw_fx_adult_oneway_ticket_req: EnjuRWFXAdultOnewayTicketRequest
   enjurw_fx_adult_roundtrip_ticket_req: EnjuRWFXAdultRoundTripTicketRequest
   enjurw_fx_half_oneway_ticket_req: EnjuRWFXHalfOnewayTicketRequest
