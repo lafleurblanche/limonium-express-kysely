@@ -3,9 +3,12 @@ import {
   AreaGWAdultRoundTripTicketRequest,
   AreaGWFXAdultOnewayTicketRequest,
   AreaGWFXAdultRoundTripTicketRequest,
+  AreaGWFXChildOnewayTicketRequest,
+  AreaGWFXChildRoundTripTicketRequest,
   AreaGWFXHalfOnewayTicketRequest,
   AreaGWFXHalfRoundTripTicketRequest,
   AreaGWHalfOnewayTicketRequest,
+  AreaGWHalfRoundTripTicketRequest,
   EnjuRWAdultOnewayTicketRequest,
   EnjuRWAdultRoundTripTicketRequest,
   EnjuRWFXAdultOnewayTicketRequest,
@@ -21,10 +24,13 @@ export interface Database {
   areagw_adult_oneway_ticket_req: AreaGWAdultOnewayTicketRequest
   areagw_adult_roundtrip_ticket_req: AreaGWAdultRoundTripTicketRequest
   areagw_half_oneway_ticket_req: AreaGWHalfOnewayTicketRequest
+  areagw_half_roundtrip_ticket_req: AreaGWHalfRoundTripTicketRequest
   areagw_fx_adult_oneway_ticket_req: AreaGWFXAdultOnewayTicketRequest
   areagw_fx_adult_roundtrip_ticket_req: AreaGWFXAdultRoundTripTicketRequest
   areagw_fx_half_oneway_ticket_req: AreaGWFXHalfOnewayTicketRequest
   areagw_fx_half_roundtrip_ticket_req: AreaGWFXHalfRoundTripTicketRequest
+  areagw_fx_child_oneway_ticket_req: AreaGWFXChildOnewayTicketRequest
+  areagw_fx_child_roundtrip_ticket_req: AreaGWFXChildRoundTripTicketRequest
   enjurw_adult_oneway_ticket_req: EnjuRWAdultOnewayTicketRequest
   enjurw_adult_roundtrip_ticket_req: EnjuRWAdultRoundTripTicketRequest
   enjurw_half_oneway_ticket_req: EnjuRWHalfOnewayTicketRequest
