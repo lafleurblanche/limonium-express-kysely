@@ -99,7 +99,7 @@ app.get('/argw-fx-req-rta', async (_req: Request, res: Response) => {
   return res.status(200).send(argwFXTicketReqRTAResult)
 });
 
-app.get('/arge-fx-req-rth', async (_req: Request, res: Response) => {
+app.get('/argw-fx-req-rth', async (_req: Request, res: Response) => {
   const argwFXTicketReqRTHResult = await getAreaGWFXTicketRequestRTH()
   return res.status(200).send(argwFXTicketReqRTHResult)
 });
